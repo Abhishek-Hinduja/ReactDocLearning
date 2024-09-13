@@ -1,29 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 
-const user = {
-    name:'Heady-lamer',
-    url:"https://i.imgur.com/yXOvdOSs.jpg",
-    imagesize:90,
-}
+function MyButton(){
+    const [count,setcount] = useState(0);
 
-function Myapp(){
-    return (
+    function handleclick(){
+        setcount(count+1)
+    }
+
+    return(
         <>
-            <h1>{user.name}</h1>
-            <img 
-                src={user.url} 
-                alt={'Photo of ' + user.name} 
-                className="Avatar" 
-                style = {{
-                    width: user.imagesize,
-                    height: user.imagesize
-            }} />
-  
+            <button onClick={handleclick}>Count is {count}</button>
         </>
     )
 }
 
+function RenderingButton(){
+    return(
+        <>
+            <h1>Here it will Show you all the buttton Components</h1>
+            <MyButton/>
+            <MyButton/>
+        </>
+    )
+}
+
+
+
 const root = ReactDOM.createRoot(document.getElementById("root"))
-root.render(<Myapp/>)
+root.render(<RenderingButton/>)
 
